@@ -1,0 +1,15 @@
+{
+  "name": "weather_app",
+  "version": "1.0.0",
+  "description": "a weather app using some random api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "(cls || clear) && echo \"Server started at http:\\\\localhost:3000\" && nodemon src/index.js -e js,hbs"
+  },
+  "author": "Jose",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  }
+}
