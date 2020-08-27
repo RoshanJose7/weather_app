@@ -4,7 +4,7 @@
   "description": "a weather app using some random api.",
   "main": "src/index.js",
   "scripts": {
-    "test": "(cls || clear) && echo \"Server started at http:\\\\localhost:3000\" && nodemon src/index.js -e js,hbs"
+    "start": "(cls || clear) && echo \"Server started at http:\\\\localhost:3000\" && nodemon src/index.js -e js,hbs"
   },
   "author": "Jose",
   "license": "MIT",
