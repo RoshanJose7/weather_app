@@ -2,6 +2,7 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
+const forecast = require("./forecast");
 
 const app = express();
 
@@ -18,34 +19,38 @@ hbs.registerPartials(partials);
 app.use(express.static(publicFolder));
 
 app.get("/", (req, res) => {
-  res.render("index", {
-    title: "Home Page",
-    name: "Roshan Jose",
-  });
-});
-
-app.get("/weather", (req, res) => {
-  let add = req.query.address;
-  if (!add) {
-    return res.render("weather", {
-      title: "Enter address query to find the weather.",
-      message: "No Address Specified!!!",
+  if (!req.query.address) {
+    return res.render("index", {
+      title: "Weather App",
+      message: "Enter address to get the Weather Forecast :)",
       name: "Roshan Jose",
     });
   }
-  res.render("weather", {
-    title: "Weather App",
-    message: "Address: " + add,
-    name: "Roshan Jose",
-  });
 });
 
-// app.get("/products", (req, res) => {
-//   console.log(req.query);
-//   res.send({
-//     products: [],
-//   });
-// });
+app.get("/weather", (req, res) => {
+  if (!req.query.address) {
+    return res.render("weather", {
+      title: "Weather Forecast",
+      message: "Enter address to get the Weather Forecast :)",
+      name: "Roshan Jose",
+    });
+  }
+
+  forecast(req.query.address, (error, forecastData) => {
+    if (error) {
+      return console.log(error);
+    } else {
+      console.log(forecastData);
+      res.render("weather", {
+        title: "City-" + req.query.address,
+        message: forecastData,
+        name: "Roshan Jose",
+      });
+      res.send(forecastData);
+    }
+  });
+});
 
 app.get("/about", (req, res) => {
   res.render("about", {

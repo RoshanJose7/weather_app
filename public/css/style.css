@@ -41,3 +41,20 @@ header a {
   margin-right: 16px;
   text-decoration: none;
 }
+
+form {
+  margin: 10px;
+}
+
+input {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #888888;
+  background: #888888;
+  color: white;
+  padding: 8px;
+}
