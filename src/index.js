@@ -5,6 +5,7 @@ const hbs = require("hbs");
 const forecast = require("./forecast");
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //defining path's
 const publicFolder = path.join(__dirname, "../public");
@@ -82,6 +83,6 @@ app.get("*", (req, res) => {
     name: "Roshan Jose",
   });
 });
-app.listen(3000, () => {
-  console.log("Server is setup on port 3000");
+app.listen(port, () => {
+  console.log("Server is setup on port " + port);
 });
