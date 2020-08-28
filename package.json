@@ -4,7 +4,10 @@
   "description": "a weather app using some random api.",
   "main": "src/index.js",
   "scripts": {
-    "start": "(cls || clear) && echo \"Server started at http:\\\\localhost:3000\" && nodemon src/index.js -e js,hbs"
+    "prestart": "(cls || clear) && echo Installing Dependencies...... && npm install",
+    "start": "(cls || clear) && echo Pruning Dependencies...... && node prune --production",
+    "pretest": "(cls || clear) && echo Installing Dependencies...... && npm install",
+    "test": "(cls || clear) && set NODE_ENV=development && nodemon src/index.js"
   },
   "author": "Jose",
   "license": "MIT",
