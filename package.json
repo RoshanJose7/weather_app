@@ -4,8 +4,7 @@
   "description": "a weather app using some random api.",
   "main": "src/index.js",
   "scripts": {
-    "prestart": "(cls || clear) && echo Installing Dependencies...... && npm install",
-    "start": "(cls || clear) && echo Pruning Dependencies...... && node prune --production",
+    "start": "node src/index.js",
     "pretest": "(cls || clear) && echo Installing Dependencies...... && npm install",
     "test": "(cls || clear) && set NODE_ENV=development && nodemon src/index.js"
   },
