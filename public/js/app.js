@@ -2,6 +2,8 @@ const weatherForm = document.querySelector("form");
 const search = document.querySelector("input");
 const message1 = document.querySelector("#message-1");
 const message2 = document.querySelector("#message-2");
+const head = document.querySelector("#msg-head");
+const message3 = document.querySelector("#message-3");
 
 weatherForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -23,6 +25,16 @@ weatherForm.addEventListener("submit", (event) => {
           ". There is " +
           data.precip +
           "% of rain.";
+        head.textContent = "Additional-Info :";
+        message3.textContent =
+          "Temperature - " +
+          data.temperature +
+          "C, Pressure - " +
+          data.pressure +
+          "Pa, Humidity - " +
+          data.humidity +
+          ", Visibility - " +
+          data.visibility;
       }
     });
   });
